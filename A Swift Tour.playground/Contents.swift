@@ -46,7 +46,17 @@ let interestingNumbers = [
     "Square": [1, 4, 9, 16, 25],
 ]
 var largest = 0
+for (key, numbers) in interestingNumbers {
+    print("dictional Key is \(key)");
+    
+    for number in numbers {
+        if largest < number {
+            largest = number;
+        }
+    }
+}
 
+print("Larget is \(largest) 😎")
 print(FlotNumber);
 print(widthTextWidthNumber);
 print("my name is \(name)");
