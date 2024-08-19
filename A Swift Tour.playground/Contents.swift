@@ -135,3 +135,98 @@ let mappedNumbers = numbers.map({ (number: Int) -> Int in
 })
 print(mappedNumbers)
 print("------------------------------")
+print("\n\n");
+// 5. Objects and Classes
+print("-----Objects and Classes------")
+
+// Every property needs a value assigned — either in its declaration (as with numberOfSides) or in the initializer (as with name).
+class Shape {
+    var name: String
+    var numberOfSides = 0;
+    let constNumber = 1;
+    
+    init(name: String) {
+        self.name = name;
+    }
+    
+    func simpleDiscription() -> String {
+        return """
+            Simple Disscription!! my NumberOfSides is \(numberOfSides)
+            And My Name is '\(name)' 🔥🔥🔥🔥🔥
+            """;
+    }
+    
+    func showConstNum() {
+        print(constNumber);
+    }
+}
+
+let shape = Shape(name: "Dong gyun");
+shape.numberOfSides = 100;
+let discription = shape.simpleDiscription();
+print(discription);
+shape.showConstNum();
+
+class Square: Shape {
+    var sideLength: Int;
+    
+    init(sideLength: Int, name: String) {
+        self.sideLength = sideLength;
+        super.init(name: name);
+    }
+    
+    override func simpleDiscription() -> String {
+        return """
+            square Disscription!! my sideLength is \(sideLength)
+            And My Name is '\(name)' 🔥🔥🔥🔥🔥
+            """;
+    }
+}
+
+let square = Square(sideLength: 10, name: "Dong gyun");
+print(square.simpleDiscription());
+print(square.numberOfSides);
+
+class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+
+
+    init(name: String) {
+       self.name = name
+    }
+
+
+    func simpleDescription() -> String {
+       return "A shape with \(numberOfSides) sides."
+    }
+}
+
+class EquilateralTriangle: NamedShape {
+    var sideLength: Double
+    
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength;
+        super.init(name: name);
+        numberOfSides = 3;
+    }
+    
+    var perimeter: Double {
+        get {
+            return 3.0 * sideLength;
+        }
+        set {
+            sideLength = newValue / 3;
+        }
+    }
+    
+    override func simpleDescription() -> String {
+          return "An equilateral triangle with sides of length \(sideLength)."
+      }
+}
+var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
+print(triangle.perimeter)
+triangle.perimeter = 9.9
+print(triangle.sideLength)
+
+print("------------------------------")
